@@ -2,7 +2,7 @@
 
 /*
   Plugin Name: Source Code Message
-  Version: 1.0.0
+  Version: 1.0.1
   Text Domain: source-code-message
   Description: Displays a custom message in the website source code.
   Author: netzstrategen

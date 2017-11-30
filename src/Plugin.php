@@ -31,15 +31,25 @@ class Plugin {
       return;
     }
 
-    static::renderCustomMessage();
+    add_action('wp', __CLASS__ . '::wp');
+  }
+
+  /**
+   * @implements wp
+   */
+  public static function wp() {
+    if (!is_feed()) {
+      static::renderCustomMessage();
+    }
   }
 
   /**
    * Renders custom message at very beginning of HTML frontend code.
    */
   public static function renderCustomMessage() {
-    $source_code_message = get_option('source_code_message');
-    echo '<!-- ' . $source_code_message . ' -->';
+    if ($source_code_message = get_option('source_code_message')) {
+      echo '<!-- ' . $source_code_message . ' -->';
+    }
   }
 
   /**
